@@ -59,7 +59,7 @@ echo -e "$GREEN COPYING SOURCES AND VIRTUAL HOST CREATING $NC"
 docker exec $WS_CONT mkdir -p /var/www/$BR_NAME
 docker cp $LARA_PATH/$BR_NAME $WS_CONT:/var/www/
 docker exec $NGINX_CONT cp /var/www/laradock/project-1.conf.example /etc/nginx/sites-available/$BR_NAME.conf
-docker exec $NGINX_CONT sed -i -e "s/project-1.dev/${BR_NAME}.timec.kindgeek.com/g" /etc/nginx/sites-available/$BR_NAME.conf # update server_name
+docker exec $NGINX_CONT sed -i -e "s/project-1.dev/${BR_NAME}.project.server.com/g" /etc/nginx/sites-available/$BR_NAME.conf # update server_name
 docker exec $NGINX_CONT sed -i -e "s/project-1/${BR_NAME}/g" /etc/nginx/sites-available/$BR_NAME.conf  # nginx config of new branch - update root
 
 docker exec $NGINX_CONT nginx -t
